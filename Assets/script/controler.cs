@@ -9,6 +9,7 @@ public class controler : MonoBehaviour
     private float speed ;
     private Vector3 mvnt;
     private Rigidbody2D rb;
+    [SerializeField]
     private bool isJumping;
     private bool isGrounded;
     [SerializeField]
@@ -46,9 +47,9 @@ public class controler : MonoBehaviour
         }
         if (Input.GetButtonUp("Jump"))
         {
-            if (jumpingTime < 0.6f)
+            if (jumpingTime < 0.4f)
             {
-                jumpingTime = 0.6f;
+                jumpingTime = 0.4f;
             }
         }
     }
@@ -84,7 +85,7 @@ public class controler : MonoBehaviour
         }
         jumpingTime += Time.fixedDeltaTime;
         mvnt += new Vector3(0, jumpCurve.Evaluate(jumpingTime), 0);
-        if (jumpingTime>jumpCurve.keys[jumpCurve.keys.Length-1].time)
+        if (jumpingTime>jumpCurve.keys[jumpCurve.keys.Length-1].time && isGrounded)
         {
             isJumping = false;
         }
