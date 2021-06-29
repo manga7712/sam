@@ -5,6 +5,7 @@ using UnityEngine;
 public class checkpoint : MonoBehaviour
 {
     public bool coll = false;
+    public GameObject Caca_sobre;
     void Start()
     {
         
@@ -17,7 +18,7 @@ public class checkpoint : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         coll = true;
-        GetComponent<life>().isCheck = true;
+        Caca_sobre.GetComponent<life>().isCheck = true;
     }
 
 }
