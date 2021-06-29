@@ -7,6 +7,7 @@ public class life : MonoBehaviour
     public float vie = 3;
     public Vector3 check = new Vector3(-4.5f, -0.5f, 0);
     private bool back = false;
+    public bool isCheck = false;
     void Start()
     {
         
@@ -21,6 +22,11 @@ public class life : MonoBehaviour
         if (vie == 0)
         {
             back = true;
+        }
+        if (isCheck == true)
+        {
+            check = transform.position;
+            isCheck = false;
         }
     }
     public void FixedUpdate()
