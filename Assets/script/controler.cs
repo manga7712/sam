@@ -17,11 +17,16 @@ public class controler : MonoBehaviour
     private float jumpingTime;
     [SerializeField]
     private AnimationCurve jumpCurve;
+    public Sprite glowL;
+    public Sprite glowD;
+    private SpriteRenderer spriteRenderer;
 
+    
     void Start()
     {
         
         rb = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
 
     }
 
@@ -30,7 +35,7 @@ public class controler : MonoBehaviour
     {
         InputHandler();
         Debug.Log(isGrounded);
-        
+        changeSprites();
     }
     private void FixedUpdate()
     {
@@ -91,5 +96,19 @@ public class controler : MonoBehaviour
         }
 
     }
-   
+    void changeSprites()
+    {
+        if (Input.GetAxis("Horizontal")>0)
+        {
+            spriteRenderer.sprite = glowD;
+        }
+        else if(Input.GetAxis("Horizontal") < 0)
+        {
+            spriteRenderer.sprite = glowL;
+        }
+        else
+        {
+            spriteRenderer.sprite = glowD;
+        }
+    }
 }
