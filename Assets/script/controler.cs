@@ -108,7 +108,7 @@ public class controler : MonoBehaviour
         }
         else
         {
-            spriteRenderer.sprite = glowD;
+         
         }
     }
 }
