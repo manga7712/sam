@@ -11,7 +11,7 @@ public class controler : MonoBehaviour
     private Rigidbody2D rb;
     [SerializeField]
     private bool isJumping;
-    private bool isGrounded;
+    public bool isGrounded;
     [SerializeField]
     private LayerMask layerMask;
     private float jumpingTime;
