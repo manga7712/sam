@@ -286,6 +286,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 200
   isJumping: 0
+  isGrounded: 0
   layerMask:
     serializedVersion: 2
     m_Bits: 64
