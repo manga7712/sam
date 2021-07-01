@@ -82,6 +82,7 @@ public class controler : MonoBehaviour
             return;
         }
         isJumping = true;
+        animator.SetBool("IsJumping", true);
         jumpingTime = 0;
     }
 
@@ -96,6 +97,8 @@ public class controler : MonoBehaviour
         if (jumpingTime>jumpCurve.keys[jumpCurve.keys.Length-1].time && isGrounded)
         {
             isJumping = false;
+            animator.SetBool("IsJumping", false);
+
         }
 
     }
