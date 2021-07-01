@@ -77,7 +77,7 @@ public class controler : MonoBehaviour
     }
     void JumpStart()
     {
-        if (isJumping && !isGrounded)
+        if (isJumping || !isGrounded)
         {
             return;
         }
