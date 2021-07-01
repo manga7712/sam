@@ -20,6 +20,7 @@ public class controler : MonoBehaviour
     public Sprite glowL;
     public Sprite glowD;
     private SpriteRenderer spriteRenderer;
+    public Animator animator;
 
     
     void Start()
@@ -46,6 +47,8 @@ public class controler : MonoBehaviour
     void InputHandler()
     {
         mvnt = new Vector3(Input.GetAxis("Horizontal"),-2,0);
+        animator.SetFloat("Speed",Mathf.Abs(mvnt.x));
+
         if (Input.GetButtonDown("Jump"))
         {
             JumpStart();

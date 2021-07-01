@@ -184,7 +184,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: e86bd1a510da37d428c95824c638c571, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -333,6 +333,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   glowL: {fileID: 21300000, guid: e86bd1a510da37d428c95824c638c571, type: 3}
   glowD: {fileID: 21300000, guid: 88c99821636ba15409beaa58fd6b935b, type: 3}
+  animator: {fileID: 74335833}
 --- !u!95 &74335833
 Animator:
   serializedVersion: 3
