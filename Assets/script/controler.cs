@@ -17,8 +17,7 @@ public class controler : MonoBehaviour
     private float jumpingTime;
     [SerializeField]
     private AnimationCurve jumpCurve;
-    public Sprite glowL;
-    public Sprite glowD;
+   
     private SpriteRenderer spriteRenderer;
     public Animator animator;
 
@@ -36,7 +35,7 @@ public class controler : MonoBehaviour
     {
         InputHandler();
         Debug.Log(isGrounded);
-        changeSprites();
+        changeAnim();
     }
     private void FixedUpdate()
     {
@@ -102,15 +101,15 @@ public class controler : MonoBehaviour
         }
 
     }
-    void changeSprites()
+    void changeAnim()
     {
         if (Input.GetAxis("Horizontal")>0)
         {
-            spriteRenderer.sprite = glowD;
+            animator.SetBool("idler",true);
         }
         else if(Input.GetAxis("Horizontal") < 0)
         {
-            spriteRenderer.sprite = glowL;
+            animator.SetBool("idler", false);
         }
         else
         {
