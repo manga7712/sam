@@ -8,6 +8,7 @@ public class life : MonoBehaviour
     public Vector3 check = new Vector3(-4.5f, -0.5f, 0);
     private bool back = false;
     public bool isCheck = false;
+    public bool damage = false;
     void Start()
     {
         
@@ -25,7 +26,7 @@ public class life : MonoBehaviour
         }
         if (isCheck == true)
         {
-            check = transform.position;
+            check = transform.position+new Vector3(0,0.5f,0);
             isCheck = false;
         }
     }

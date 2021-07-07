@@ -105,11 +105,11 @@ public class controler : MonoBehaviour
     {
         if (Input.GetAxis("Horizontal")>0)
         {
-            animator.SetBool("idler",true);
+            animator.SetBool("idleR",true);
         }
         else if(Input.GetAxis("Horizontal") < 0)
         {
-            animator.SetBool("idler", false);
+            animator.SetBool("idleR", false);
         }
         else
         {
