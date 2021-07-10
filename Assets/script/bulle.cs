@@ -20,7 +20,7 @@ public class bulle : MonoBehaviour
         if (hit.collider != null)
         {
             dead = true;
-           GameObject.Destroy(gameObject,2f);
+           GameObject.Destroy(gameObject,0.2f);
         }
         else
         {

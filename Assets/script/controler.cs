@@ -17,11 +17,13 @@ public class controler : MonoBehaviour
     private float jumpingTime;
     [SerializeField]
     private AnimationCurve jumpCurve;
-   
     private SpriteRenderer spriteRenderer;
     public Animator animator;
+    [SerializeField]
+    string[] state;
+    private string currentState;
 
-    
+
     void Start()
     {
         
@@ -81,7 +83,6 @@ public class controler : MonoBehaviour
             return;
         }
         isJumping = true;
-        animator.SetBool("IsJumping", true);
         jumpingTime = 0;
     }
 
@@ -103,17 +104,32 @@ public class controler : MonoBehaviour
     }
     void changeAnim()
     {
-        if (Input.GetAxis("Horizontal")>0)
-        {
-            animator.SetBool("idleR",true);
+        if (isJumping == true) {
+            if (Input.GetAxis("Horizontal")>0)
+            {
+
+                if (currentState == state[4] || currentState == state[0]) {
+
+                    ChangeAnimationState(state[2]);
+
+                }else if (currentState == state[5] || currentState == state[3]){
+
+
+                }
+
+            }
+            else if(Input.GetAxis("Horizontal") < 0)
+            {
+                ChangeAnimationState(state[5]);
+            }
         }
-        else if(Input.GetAxis("Horizontal") < 0)
-        {
-            animator.SetBool("idleR", false);
-        }
-        else
-        {
-         
-        }
+    }
+    void ChangeAnimationState(string newState)
+    {
+        if (newState == currentState) return;
+
+        currentState = newState;
+
+        animator.Play(currentState);
     }
 }
