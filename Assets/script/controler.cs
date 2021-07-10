@@ -114,13 +114,25 @@ public class controler : MonoBehaviour
 
                 }else if (currentState == state[5] || currentState == state[3]){
 
+                    ChangeAnimationState(state[0]);
 
                 }
 
             }
             else if(Input.GetAxis("Horizontal") < 0)
             {
-                ChangeAnimationState(state[5]);
+                if (currentState == state[5] || currentState == state[1])
+                {
+
+                    ChangeAnimationState(state[3]);
+
+                }
+                else if (currentState == state[4] || currentState == state[2])
+                {
+
+                    ChangeAnimationState(state[1]);
+
+                }
             }
         }
     }
