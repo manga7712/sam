@@ -21,7 +21,8 @@ public class controler : MonoBehaviour
     public Animator animator;
     [SerializeField]
     string[] state;
-    private string currentState;
+    public string currentState;
+    public int test;
 
 
     void Start()
@@ -29,7 +30,7 @@ public class controler : MonoBehaviour
         
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-
+        currentState = state[4];
     }
 
 
@@ -48,7 +49,6 @@ public class controler : MonoBehaviour
     void InputHandler()
     {
         mvnt = new Vector3(Input.GetAxis("Horizontal"),-2,0);
-        animator.SetFloat("Speed",Mathf.Abs(mvnt.x));
 
         if (Input.GetButtonDown("Jump"))
         {
@@ -97,44 +97,83 @@ public class controler : MonoBehaviour
         if (jumpingTime>jumpCurve.keys[jumpCurve.keys.Length-1].time && isGrounded)
         {
             isJumping = false;
-            animator.SetBool("IsJumping", false);
 
         }
 
     }
     void changeAnim()
     {
-        if (isJumping == true) {
-            if (Input.GetAxis("Horizontal")>0)
-            {
+          if (isJumping == true) {
 
-                if (currentState == state[4] || currentState == state[0]) {
+              if (Input.GetAxis("Horizontal")>0)
+              {
+
+                  if (currentState == state[4]) {
 
                     ChangeAnimationState(state[2]);
+                    test = 2;
 
-                }else if (currentState == state[5] || currentState == state[3]){
+                  }else if (currentState == state[5] || currentState == state[3]){
 
                     ChangeAnimationState(state[0]);
-
+                    test = 0;
                 }
 
-            }
-            else if(Input.GetAxis("Horizontal") < 0)
-            {
-                if (currentState == state[5] || currentState == state[1])
-                {
+              }
+              else if(Input.GetAxis("Horizontal") < 0)
+              {
+                  if (currentState == state[5] )
+                  {
 
                     ChangeAnimationState(state[3]);
-
+                    test = 3;
                 }
-                else if (currentState == state[4] || currentState == state[2])
-                {
+                  else if (currentState == state[4] || currentState == state[2])
+                  {
 
                     ChangeAnimationState(state[1]);
-
+                    test = 1;
                 }
-            }
+              }
+          }
+          else if (isJumping == false)
+          {
+
+              if (Input.GetAxis("Horizontal") > 0)
+              {
+
+                  if (currentState == state[2])
+                  {
+
+                    ChangeAnimationState(state[4]);
+                    test = 4;
+                }
+                  else if (currentState == state[5] || currentState == state[3])
+                  {
+
+                    ChangeAnimationState(state[0]);
+                    test = 0;
+                }
+
+              }
+              else if (Input.GetAxis("Horizontal") < 0)
+              {
+                  if (currentState == state[5] || currentState == state[1])
+                  {
+
+                    ChangeAnimationState(state[5]);
+                    test = 5;
+                }
+                  else if (currentState == state[4] || currentState == state[2])
+                  {
+
+                    ChangeAnimationState(state[1]);
+                    test = 1;
+                }
+              }
         }
+        
+
     }
     void ChangeAnimationState(string newState)
     {

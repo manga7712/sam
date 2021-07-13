@@ -341,6 +341,10 @@ MonoBehaviour:
   - jump_l
   - idle_r
   - idle_l
+  - l_vers_r_jump
+  - r_vers_l_jump
+  currentState: 
+  test: 0
 --- !u!95 &74335833
 Animator:
   serializedVersion: 3
