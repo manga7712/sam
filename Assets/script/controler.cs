@@ -108,30 +108,30 @@ public class controler : MonoBehaviour
               if (Input.GetAxis("Horizontal")>0)
               {
 
-                  if (currentState == state[4]) {
+                  if (currentState == state[4]) {//idle_r
 
-                    ChangeAnimationState(state[2]);
+                    ChangeAnimationState(state[2]);//jump_r
                     test = 2;
 
-                  }else if (currentState == state[5] || currentState == state[3]){
+                  }else if (currentState == state[5] || currentState == state[3]){//idle_l   jump_l
 
-                    ChangeAnimationState(state[0]);
+                    ChangeAnimationState(state[6]);//l_vers_r_jump
                     test = 0;
                 }
 
               }
               else if(Input.GetAxis("Horizontal") < 0)
               {
-                  if (currentState == state[5] )
+                  if (currentState == state[5] )//idle_l
                   {
 
-                    ChangeAnimationState(state[3]);
+                    ChangeAnimationState(state[3]);//jump_l
                     test = 3;
                 }
-                  else if (currentState == state[4] || currentState == state[2])
+                  else if (currentState == state[4] || currentState == state[2])//idle_r  jump_r
                   {
 
-                    ChangeAnimationState(state[1]);
+                    ChangeAnimationState(state[7]);//r_vers_l_jump
                     test = 1;
                 }
               }
@@ -142,32 +142,32 @@ public class controler : MonoBehaviour
               if (Input.GetAxis("Horizontal") > 0)
               {
 
-                  if (currentState == state[2])
+                  if (currentState == state[2])//jump_r
                   {
 
-                    ChangeAnimationState(state[4]);
+                    ChangeAnimationState(state[4]);//idle_r
                     test = 4;
                 }
-                  else if (currentState == state[5] || currentState == state[3])
+                  else if (currentState == state[5] || currentState == state[3])//idle_l  jump_l
                   {
 
-                    ChangeAnimationState(state[0]);
+                    ChangeAnimationState(state[0]);//l_vers_r
                     test = 0;
                 }
 
               }
               else if (Input.GetAxis("Horizontal") < 0)
               {
-                  if (currentState == state[5] || currentState == state[1])
+                  if (currentState == state[3] )//jump_l
                   {
 
-                    ChangeAnimationState(state[5]);
+                    ChangeAnimationState(state[5]);//idle_l
                     test = 5;
-                }
-                  else if (currentState == state[4] || currentState == state[2])
+                  }
+                  else if (currentState == state[4] || currentState == state[2])// idle_r   jump_r
                   {
 
-                    ChangeAnimationState(state[1]);
+                    ChangeAnimationState(state[1]);//r_vers_l
                     test = 1;
                 }
               }
